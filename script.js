@@ -9,7 +9,7 @@ themeBtn.addEventListener('click', () => {
         isDark = true;
     } else {
         document.body.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
-        themeBtn.innerText = 'Светлый фон';
+        themeBtn.innerText = 'Темный фон';
         isDark = false;
     }
     
