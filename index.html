@@ -6,7 +6,7 @@
     <div style="position: fixed; bottom: 10%; right: 15%; width: 250px; height: 250px; background: rgba(255,255,255,0.1); border-radius: 50%; filter: blur(80px); z-index: -1;"></div>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Визитка Егора</title>
+    <title>Визитка Егора Дулесова</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com">
     <style>
         /* Базовые настройки страницы */
@@ -146,7 +146,12 @@
             <span>CSS</span>
             <span>JavaScript</span>
         </div>
-
+        
+        <div class="like-section" style="margin-top: 20px;">
+            <button id="like-btn" style="background: none; border: none; cursor: pointer; font-size: 24px">😡</button>
+            <span id="like-count" style="font-weight: bold; font-size: 18px;">0</span>
+        </div>
+        
         <div class="links">
     <a href="https://github.com" target="_blank" class="github-btn">
         <i class="fa-brands fa-github"></i> Мой GitHub</a>
@@ -154,25 +159,6 @@
 
         <button id="theme-btn">Сменить фон</button>
     </div>
-
-    <script>
-        const btn = document.getElementById('theme-btn');
-        let isDark = false;
-
-        btn.addEventListener('click', () => {
-            if (!isDark) {
-                // Меняем на темный глубокий градиент
-                document.body.style.background = 'linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)';
-                btn.innerText = 'Светлый фон';
-                isDark = true;
-            } else {
-                // Возвращаем яркий градиент
-                document.body.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
-                btn.innerText = 'Тёмный фон';
-                isDark = false;
-            }
-        });
-    </script>
-
+<script src="script.js"></script>
 </body>
 </html>
