@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <!-- Эти круги будут плавать на фоне -->
-    <div style="position: fixed; top: 20%; left: 10%; width: 150px; height: 150px; background: rgba(255,255,255,0.1); border-radius: 50%; filter: blur(50px); z-index: -1;"></div>
-    <div style="position: fixed; bottom: 10%; right: 15%; width: 250px; height: 250px; background: rgba(255,255,255,0.1); border-radius: 50%; filter: blur(80px); z-index: -1;"></div>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Визитка Егора Дулесова</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com">
+    <link rel="stylesheet" href="https://cloudflare.com">
     <style>
         /* Базовые настройки страницы */
+        * {
+            -webkit-tap-highlight-color: transparent !important;
+            -webkit-touch-callout: none;
+        }
+
         body {
             margin: 0;
             min-height: 100vh;
@@ -89,6 +91,10 @@
 
         /* Кнопка смены темы */
         #theme-btn {
+            user-select: none;
+            -webkit-user-select: none;
+            outline: none !important;
+            box-shadow: none !important;
             margin-top: 30px;
             width: 100%;
             padding: 12px;
@@ -100,12 +106,23 @@
             cursor: pointer;
             transition: 0.3s;
         }
+        
+        #like-btn {
+            user-select: none;
+            -webkit-user-select: none;
+            outline: none !important;
+            box-shadow: none !important;
+        }
 
         #theme-btn:hover {
             background: white;
             transform: scale(1.02);
         }
         .github-btn {
+    user-select: none;
+    -webkit-user-select: none;
+    outline: none !important;
+    box-shadow: none !important;
     display: inline-block;
     display: flex;
     align-items: center;
@@ -134,8 +151,11 @@
 </head>
 <body>
 
+    <!-- Круги будут плавать на фоне -->
+    <div style="position: fixed; top: 20%; left: 10%; width: 150px; height: 150px; background: rgba(255,255,255,0.1); border-radius: 50%; filter: blur(50px); z-index: -1;"></div>
+    <div style="position: fixed; bottom: 10%; right: 15%; width: 250px; height: 250px; background: rgba(255,255,255,0.1); border-radius: 50%; filter: blur(80px); z-index: -1;"></div>
+
     <div class="card">
-        <!-- Проверь, что файл me.jpg лежит в той же папке! -->
         <img src="me.jpg" alt="Егор">
         
         <h1>Дулесов Егор</h1>
