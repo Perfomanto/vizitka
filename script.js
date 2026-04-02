@@ -1,4 +1,4 @@
-// Логика смены фона
+// --- 1. ЛОГИКА СМЕНЫ ФОНА ---
 const themeBtn = document.getElementById('theme-btn');
 let isDark = false;
 
@@ -12,56 +12,78 @@ themeBtn.addEventListener('click', () => {
         themeBtn.innerText = 'Темный фон';
         isDark = false;
     }
-    
 });
 
+// --- 2. ЛОГИКА СЧЕТЧИКА И ПРОГРЕССА ---
 
-// Логика счетчика лайков
-let count = localStorage.getItem('angryLikes') || 0; //Читаем из памяти
+// Читаем сохраненное число из памяти (или 0, если там пусто)
+let count = Number(localStorage.getItem('angryLikes')) || 0;
 
-const LikeBtn = document.getElementById('like-btn');
-const LikeDisplay = document.getElementById('like-count');
-const ResetBtn = document.getElementById('reset-btn');
-LikeDisplay.innerText = count; //Вывод числа при загрузке страницы
+// Находим все элементы на странице
+const likeBtn = document.getElementById('like-btn');
+const likeDisplay = document.getElementById('like-count');
+const resetBtn = document.getElementById('reset-btn');
+const progress_bar = document.getElementById('progress-bar');
+const card = document.querySelector('.card');
 
-// Функция для проверки "достижений"
+// Функция для обновления прогресс-бара
+function updateProgressBar() {
+    let currentNumber = Number(count); // Превращаем в число для математики
+    let percentage = Math.min(currentNumber, 100); // Ограничиваем максимумом 100 для наглядности
+    
+    progress_bar.style.width = percentage + '%'; // Меняем ширину полоски
+}
+
+// Функция для проверки "достижений" (смайлик и свечение)
 function checkAchievements() {
-    const card = document.querySelector('.card');
+    let currentNumber = Number(count);
 
-    if (count >= 10) {
-        LikeBtn.innerText = '👿'; // Меняем смайлик
-        document.querySelector('.card').style.boxShadow = '0 0 30px #ff4b2b'; // Добавляем эффект свечения
+    if (currentNumber >= 100) {
+        likeBtn.innerText = '👿'; // Меняем смайлик
+        card.style.boxShadow = '0 0 30px #ff4b2b'; // Добавляем свечение
+        progress_bar.style.background = 'linear-gradient(90deg, #fbc2eb 0%, #a6c1ee 100%)'; // Красивый цвет полоски
     } else {
-        LikeBtn.innerText = '😡'; // Возвращаем исходный смайлик
-        card.style.boxShadow = '0 8px 32px 0 rgba(255, 255, 255, 0.3)'; // Стандартная тень
-        card.style.border = '1px solid rgba(255, 255, 255, 0.2)'; // Стандартная рамка
+        likeBtn.innerText = '😡'; // Возвращаем исходный смайлик
+        card.style.boxShadow = '0 8px 32px 0 rgba(0, 0, 0, 0.3)'; // Обычная тень
+        progress_bar.style.background = 'linear-gradient(90deg, #ff416c, #ff4b2b)'; // Обычный цвет полоски
     }
-};
-
-// Проверяем достижения при загрузке страницы
+}
+// Выводим данные сразу, как только пользователь зашел на сайт
+likeDisplay.innerText = count;
+updateProgressBar();
 checkAchievements();
-LikeDisplay.innerText = count; //Вывод числа при загрузке страницы
 
-// Клик по смайлу
-LikeBtn.addEventListener('click', () => {
-    count = Number(count) + 1; //Увеличиваем счетик на единицу
-    LikeDisplay.innerText = count; 
-    localStorage.setItem('angryLikes', count); //Записываем в память
-    checkAchievements(); // Проверяем достижения
+// --- 4. ОБРАБОТЧИКИ СОБЫТИЙ (КЛИКИ) ---
 
-    //Эффект нажатия нашей кнопки
-    LikeBtn.style.transform = 'scale(1.2)';
+// Клик по злому смайлу
+likeBtn.addEventListener('click', () => {
+    // 1. Увеличиваем число
+    count = Number(count) + 1; 
+    
+    // 2. Сохраняем и выводим на экран
+    likeDisplay.innerText = count;
+    localStorage.setItem('angryLikes', count);
+    
+    // 3. Обновляем визуал (полоску и ачивки)
+    updateProgressBar();
+    checkAchievements();
+
+    // 4. Эффект "прыжка" кнопки
+    likeBtn.style.transform = 'scale(1.2)';
     setTimeout(() => {
-        LikeBtn.style.transform = 'scale(1)';
+        likeBtn.style.transform = 'scale(1)';
     }, 100);
 });
 
 // Клик по кнопке сброса
-ResetBtn.addEventListener('click', () => {
-    if (confirm('Точно хочешь обнулить весь свой гнев?')) {
-        count = 0; //Сбрасываем счетчик
+resetBtn.addEventListener('click', () => {
+    if (confirm('Вы уверены, что хотите сбросить счетчик?')) {
+        count = 0;
         localStorage.setItem('angryLikes', 0);
-        LikeDisplay.innerText = 0;
-        checkAchievements(); // Проверяем достижения
+        likeDisplay.innerText = 0;
+        
+        // Обнуляем визуал
+        updateProgressBar();
+        checkAchievements();
     }
 });

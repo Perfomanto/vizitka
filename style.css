@@ -152,7 +152,7 @@
 .projects-section {
     width: 100%;
     max-width: 900px;
-    margin-top: 40px auto;
+    margin: 40px auto;
 }
 
 .projects-grid {
@@ -182,4 +182,22 @@
 .project-image {
     font-size: 40px;
     margin-bottom: 15px;
+}
+
+.progress-container {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    margin-top: 10px;
+    height: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.progress-bar {
+    width: 0%;  /*Изначально заполнена на 0%*/
+    height: 100%; /* Высота полосы прогресса должна быть меньше высоты контейнера, чтобы создать эффект заполнения внутри него */
+    background: linear-gradient(90deg, #ff416c, #ff4b2b); /* Красивый градиент для полосы прогресса */
+    box-shadow: 0 0 10px rgba(255, 75, 43, 0.5); /* Легкое свечение для полосы прогресса */
+    transition: width 0.3s ease;  /* Плавное изменение ширины */
 }
