@@ -5,149 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Визитка Егора Дулесова</title>
     <link rel="stylesheet" href="https://cloudflare.com">
-    <style>
-        /* Базовые настройки страницы */
-        * {
-            -webkit-tap-highlight-color: transparent !important;
-            -webkit-touch-callout: none;
-        }
-
-        body {
-            margin: 0;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            /* Красивый градиент, чтобы стекло "заиграло" */
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            transition: background 0.5s ease;
-        }
-
-        /* Эффект матового стекла для карточки */
-        .card {
-            background: rgba(255, 255, 255, 0.1); /* Полупрозрачный белый */
-            backdrop-filter: blur(15px); /* Размытие фона за карточкой */
-            -webkit-backdrop-filter: blur(15px); /* Для Safari */
-            border: 1px solid rgba(255, 255, 255, 0.2); /* Тонкая рамка */
-            border-radius: 20px;
-            padding: 40px;
-            width: 320px;
-            text-align: center;
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
-            color: white;
-            transition: transform 0.3s ease;
-        }
-
-        /* Анимация при наведении на карточку */
-        .card:hover {
-            transform: translateY(-10px);
-        }
-
-        /* Стили фото */
-        img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid rgba(255, 255, 255, 0.3);
-            margin-bottom: 20px;
-        }
-
-        h1 { margin: 10px 0; font-size: 28px; text-shadow: 0 2px 4px rgba(0,0,0,0.2); }
-        p { opacity: 0.9; margin-bottom: 25px; font-size: 16px; }
-
-        /* Контейнер для навыков */
-        .skills {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin-bottom: 25px;
-        }
-
-        /* Кнопки-навыки в стеклянном стиле */
-        .skills span {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 6px 15px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: bold;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        /* Ссылка на GitHub */
-        .links a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            border-bottom: 2px solid rgba(255, 255, 255, 0.4);
-            transition: 0.3s;
-        }
-
-        .links a:hover {
-            border-bottom-color: white;
-        }
-
-        /* Кнопка смены темы */
-        #theme-btn {
-            user-select: none;
-            -webkit-user-select: none;
-            outline: none !important;
-            box-shadow: none !important;
-            margin-top: 30px;
-            width: 100%;
-            padding: 12px;
-            border: none;
-            border-radius: 12px;
-            background: rgba(255, 255, 255, 0.9);
-            color: #333;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        
-        #like-btn {
-            user-select: none;
-            -webkit-user-select: none;
-            outline: none !important;
-            box-shadow: none !important;
-        }
-
-        #theme-btn:hover {
-            background: white;
-            transform: scale(1.02);
-        }
-        .github-btn {
-    user-select: none;
-    -webkit-user-select: none;
-    outline: none !important;
-    box-shadow: none !important;
-    display: inline-block;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(255, 255, 255, 0.2);
-    padding: 10px 20px;
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    color: white !important; /* Чтобы текст всегда был белым */
-    text-decoration: none;
-    font-weight: bold;
-    transition: 0.3s ease;
-    margin-top: 10px;
-}
-
-.github-btn:hover {
-    background: rgba(255, 255, 255, 0.4);
-    transform: scale(1.05);
-}
-
-.github-btn i {
-    margin-right: 8px; /* Отступ от иконки до текста */
-    font-size: 1.2rem;
-}
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -173,12 +31,39 @@
         </div>
         
         <div class="links">
-    <a href="https://github.com" target="_blank" class="github-btn">
+    <a href="https://github.com/Perfomanto" target="_blank" class="github-btn">
         <i class="fa-brands fa-github"></i> Мой GitHub</a>
         </div>
 
         <button id="theme-btn">Сменить фон</button>
     </div>
+
+<section class="projects-section">
+    <h2 class="section-title">Мои проекты</h2>
+    <div class="projects-grid">
+        <!--Карточка 1-->
+        <div class="project-card">
+            <div class="project-image">♿</div>
+            <h3>Сайт-визитка</h3>
+            <p>Мой самый первый проект с эффектом стекла и темной темой.</p>
+        </div>
+        <!--Карточка 2-->
+        <div class="project-card">
+            <div class="project-image">🕹️</div>
+            <h3>Игра на Java Script</h3>
+            <p>Скоро здесь будет простая бразуерная игра.</p>
+        </div>
+        <!--Карточка 3-->
+        <div class="project-card">
+            <div class="project-image">📱</div>
+            <h3>Приложение</h3>
+            <p>Проект в разработке. Учусь работать с данными</p>
+        </div>
+    </div>
+</section>
+<footer style="margin-top: 60px; padding-bottom: 30px; color: rgba(255, 255, 255, 0.6); font-size: 14px;  text-align: center;">
+    © 2026 Дулесов Егор. Создано с любовью ❤️
+</footer>
 <script src="script.js"></script>
 </body>
 </html>
