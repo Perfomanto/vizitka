@@ -34,7 +34,7 @@ function updateProgressBar() {
     progress_bar.style.width = percentage + '%'; // Меняем ширину полоски
 }
 
-// Функция для проверки "достижений" (смайлик и свечение)
+// Функция для проверки достижений и изменения внешнего вида
 function checkAchievements() {
     let currentNumber = Number(count);
 
@@ -87,3 +87,21 @@ resetBtn.addEventListener('click', () => {
         checkAchievements();
     }
 });
+// --- 3. ЛОГИКА АНИМАЦИИ ПРИ ПРОКРУТКЕ ---
+function reveal() {
+    var reveals = document.querySelectorAll(".reveal");
+
+    for (var i = 0; i < reveals.length; i++) {
+        var windowHeight = window.innerHeight;
+        var elementTop = reveals[i].getBoundingClientRect().top;
+        var elementVisible = 150;
+
+        if (elementTop < windowHeight - elementVisible) {
+            reveals[i].classList.add("active");
+        }
+    }
+}
+
+window.addEventListener("scroll", reveal);
+
+reveal(); // Вызываем функцию при загрузке страницы, чтобы анимация сработала для элементов, которые уже видны при загрузке

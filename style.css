@@ -3,7 +3,7 @@
             -webkit-tap-highlight-color: transparent !important;
             -webkit-touch-callout: none;
         }
-
+        /* Стили для всего тела страницы */
         body {
             margin: 0;
             min-height: 100vh;
@@ -78,7 +78,7 @@
             border-bottom: 2px solid rgba(255, 255, 255, 0.4);
             transition: 0.3s;
         }
-
+        /* Эффект при наведении на ссылку */
         .links a:hover {
             border-bottom-color: white;
         }
@@ -100,19 +100,19 @@
             cursor: pointer;
             transition: 0.3s;
         }
-        
+        /* Стили для кнопки "Нравится" в стиле матового стекла */
         #like-btn {
             user-select: none;
             -webkit-user-select: none;
             outline: none !important;
             box-shadow: none !important;
         }
-
+        /* Эффект при наведении на кнопку смены темы */
         #theme-btn:hover {
             background: white;
             transform: scale(1.02);
         }
-        .github-btn {
+        .github-btn { /* Стили для кнопки GitHub в стиле матового стекла */
     user-select: none;
     -webkit-user-select: none;
     outline: none !important;
@@ -131,37 +131,37 @@
     transition: 0.3s ease;
     margin-top: 10px;
 }
-
+/* Эффект при наведении на кнопку GitHub */
 .github-btn:hover {
     background: rgba(255, 255, 255, 0.4);
     transform: scale(1.05);
 }
-
+/* Стили для иконки внутри кнопки GitHub */
 .github-btn i {
     margin-right: 8px; /* Отступ от иконки до текста */
     font-size: 1.2rem;
 }
-
+/* Стили для секции проектов */
 .section-title {
     color: white;
     font-size: 28px;
     margin-bottom: 30px;
     text-align: center;
 }
-
+/* Контейнер для секции проектов */
 .projects-section {
     width: 100%;
     max-width: 900px;
     margin: 40px auto;
 }
-
+/* Сетка для проектов */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
     padding: 20px;
 }
-
+/* Карточка проекта в стиле матового стекла */
 .project-card {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(15px);
@@ -173,17 +173,17 @@
     color:white;
     transition: transform 0.3s ease;
 }
-
+/* Анимация при наведении на карточку проекта */
 .project-card:hover {
     transform: translateY(-10px);
     background: rgba(255, 255, 255, 0.15);
 }
-
+/* Стили для изображения проекта */
 .project-image {
     font-size: 40px;
     margin-bottom: 15px;
 }
-
+/* Контейнер для полосы прогресса */
 .progress-container {
     width: 100%;
     background: rgba(255, 255, 255, 0.1);
@@ -193,11 +193,22 @@
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
-
+/* Полоса прогресса внутри контейнера */
 .progress-bar {
     width: 0%;  /*Изначально заполнена на 0%*/
     height: 100%; /* Высота полосы прогресса должна быть меньше высоты контейнера, чтобы создать эффект заполнения внутри него */
     background: linear-gradient(90deg, #ff416c, #ff4b2b); /* Красивый градиент для полосы прогресса */
     box-shadow: 0 0 10px rgba(255, 75, 43, 0.5); /* Легкое свечение для полосы прогресса */
     transition: width 0.3s ease;  /* Плавное изменение ширины */
+}
+/* Эффект появления при скролле */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+/* Когда элемент становится видимым, добавляем класс active для запуска анимации */
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
 }
