@@ -48,6 +48,88 @@
             margin-bottom: 20px;
         }
 
+        /* Контейнер для аватара с всплывашкой */
+        .avatar-container {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .avatar-container > img {
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .avatar-container:hover > img {
+            transform: scale(1.1);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Всплывающий блок биографии */
+        .bio-popup {
+            position: absolute;
+            top: 140px;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            width: 260px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 15px;
+            padding: 20px;
+            color: #333;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            z-index: 100;
+            text-align: left;
+        }
+
+        .avatar-container:hover .bio-popup {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .bio-popup h3 {
+            margin: 0 0 10px 0;
+            font-size: 18px;
+            color: #667eea;
+        }
+
+        .bio-popup p {
+            margin: 0 0 15px 0;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #555;
+        }
+
+        .bio-stats {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .bio-stats span {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+        }
+
+        /* Стрелочка сверху всплывашки */
+        .bio-popup::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 0 10px 10px 10px;
+            border-style: solid;
+            border-color: transparent transparent rgba(255, 255, 255, 0.95) transparent;
+        }
+
         h1 { margin: 10px 0; font-size: 28px; text-shadow: 0 2px 4px rgba(0,0,0,0.2); }
         p { opacity: 0.9; margin-bottom: 25px; font-size: 16px; }
 

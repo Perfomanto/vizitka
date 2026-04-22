@@ -96,8 +96,8 @@ function reveal() {
         var elementTop = reveals[i].getBoundingClientRect().top;
         var elementVisible = 150;
 
-        if (elementTop < windowHeight - elementVisible) {
-            reveals[i].classList.add("active");
+        if (elementTop < windowHeight - elementVisible) { 
+            reveals[i].classList.add("active"); 
         }
     }
 }
